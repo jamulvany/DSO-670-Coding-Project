@@ -14,10 +14,9 @@ Y = 27.75 - Z.^2 + 6*X.*Z - 9*X.^2 + V;
 %Regress Z on X
 b = regress(Z, [ones(n,1) X]);
 
-%Find estimates for Z and c given coefficients from regression
+%Find estimates for Z and tau given coefficients from regression
 ZHat = b(1) + X*b(2);
 tauHat = sqrt(15.1234);
-muHat = mean(Z);
 
 %Impute propensity score corresponding to each data point
 QHat = ( 1/(sqrt(2*pi)*tauHat) )  * exp ( -1/(2*tauHat^2)*(Z-ZHat).^2 );
