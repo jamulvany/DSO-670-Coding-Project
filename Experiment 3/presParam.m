@@ -15,7 +15,7 @@ Y = 27.75 - Z.^2 + 6*X.*Z - 9*X.^2 + V + 6*O.*Z - 9*O.^2;
 %Regress Z on X
 b = regress(Z, [ones(n,1) X O]);
 
-%Find estimates for Z and c given coefficients from regression
+%Find estimates for Z and tau given coefficients from regression
 ZHat = b(1) + X*b(2) + O*b(3);
 tauHat = sqrt(sum((Z-ZHat).^2)/n);
 
